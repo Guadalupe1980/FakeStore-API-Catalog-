@@ -8,23 +8,25 @@ function ProductPage() {
   if (loading) return <p>Cargando catálogo...</p>;
 
   return (
-    <div className="grid grid-cols-2 gap-4 p-4">
-      {getproducto.map((procategoria) => (
-        <div key={procategoria.id} className="bg-gray-300 p-5 rounded-xl">
-          
-          <Link to={`/detallePro/${procategoria.id}`} className="block cursor-pointer">
-            <img
-              src={procategoria.image}
-              alt={procategoria.title}
-              className="w-full h-40 object-contain"
-            />
-          </Link>
+<div key={procategoria.id} className="bg-gray-300 p-5 rounded-xl">
+  
+  {/* Encapsulamos la imagen en el Link con target="_blank" */}
+  <Link 
+    to={`/detallePro/${procategoria.id}`} 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="block cursor-pointer hover:opacity-90 transition-opacity"
+  >
+    <img
+      src={procategoria.image}
+      alt={procategoria.title}
+      className="w-full h-40 object-contain"
+    />
+  </Link>
 
-          <h2 className="font-bold text-sm mt-2">{procategoria.title}</h2>
-          <p className="text-blue-700 font-bold">${procategoria.price}</p>
-        </div>
-      ))}
-    </div>
+  <h2 className="font-bold text-sm mt-2">{procategoria.title}</h2>
+  <p className="text-blue-700 font-bold">${procategoria.price}</p>
+</div>
   );
 }
 
