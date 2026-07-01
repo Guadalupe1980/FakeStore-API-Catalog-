@@ -3,7 +3,7 @@ import { useEffect, useState, useCallback } from "react";
 
 export default function useFetchProducts() {
   const { id } = useParams();
-  const [getproducto, setProducto] = useState(null);
+  const [getproducto, setProducto] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
@@ -35,7 +35,7 @@ export default function useFetchProducts() {
     } catch (err) {
       setError(true);
       setMessage(err.message);
-      console.error(err);
+      //console.error(err);
     } finally {
       setLoading(false);
     }

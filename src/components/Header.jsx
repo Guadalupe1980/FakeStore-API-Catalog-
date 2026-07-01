@@ -1,6 +1,7 @@
-import fondoHeader from '../assets/fondoHeader.png'
+import fondoHeader from "../assets/fondoHeader.png";
+import SearchBar from "./SearchBar";
 
-function Header() {
+function Header({ search, setSearch }) {
   return (
     <>
       <nav className="flex justify-between p-5">
@@ -17,15 +18,25 @@ function Header() {
           luxe
         </span>
         <div className="flex gap-3 items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="23px"
-            viewBox="0 -960 960 960"
-            width="35px"
-            fill="currentColor"
-          >
-            <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
-          </svg>
+          <div className="relative">
+            <input
+              type="text"
+              value={search}
+              className="border border-gray-300 relative rounded-xl outline-none"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="20px"
+              viewBox="0 -960 960 960"
+              width="30px"
+              fill="currentColor"
+              className="absolute top-1 text-gray-400"
+            >
+              <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+            </svg>
+          </div>
+
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="25px"
@@ -43,7 +54,11 @@ function Header() {
 
       <header className="relative h-[80vh] w-full flex flex-col justify-center items-center text-center px-6 bg-slate-950 text-white overflow-hidden">
         <section className=" absolute inset-0 z-0 opacity-50">
-          <img src={fondoHeader} alt="Modelo" className="w-full h-[93%] object-contain object-bottom scale-110]"/>
+          <img
+            src={fondoHeader}
+            alt="Modelo"
+            className="w-full h-[93%] object-contain object-bottom scale-110]"
+          />
           <div className="absolute inset-0 bg-linear-to-t from-[#0d1622] via-transparent to-transparent"></div>
         </section>
 
