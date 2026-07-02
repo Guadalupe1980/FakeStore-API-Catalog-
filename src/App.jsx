@@ -3,6 +3,7 @@ import ProductPage from "./pages/ProductPage";
 import ProductDetail from "./components/ProductDetail";
 import Home from "./pages/Home";
 import TabBar from "./components/TabBar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       </div>
 
       <TabBar />
+      <Footer />
     </main>
   );
 }

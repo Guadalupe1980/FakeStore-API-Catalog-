@@ -48,7 +48,7 @@ function ProductDetail() {
 
   return (
     <>
-      <div className="bg-white p-10 shadow">
+      <div className="bg-white p-10 shadow md:max-w-[60%] md:mx-auto">
         <button onClick={() => navigate(-1)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

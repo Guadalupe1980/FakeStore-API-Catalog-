@@ -82,54 +82,66 @@ function ProductCard({ products, loading, error, reintentar }) {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 gap-x-4 gap-y-8">
-          {/* Mapeamos la lista limpia y filtrada que viene desde el Home */}
-          {listaA_Mostrar.map((getpro) => (
-            <section
-              key={getpro.id}
-              className="flex flex-col bg-white md:shadow-md md:p-5 md:border md:border-gray-100 md:rounded-md"
-            >
-              <Link to={`/detallePro/${getpro.id}`} className="w-full">
-                <div className="relative aspect-3/4 w-full bg-[#edefef] rounded-2xl md:rounded overflow-hidden p-5 flex items-center justify-center">
-                  <img
-                    src={getpro.image}
-                    alt={`Foto de ${getpro.title}`}
-                    className="max-h-full max-w-full object-contain mix-blend-multiply"
-                  />
-                </div>
-              </Link>
+        <>
+          <div className="grid grid-cols-2 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4 gap-x-4 gap-y-8">
+            {/* Mapeamos la lista limpia y filtrada que viene desde el Home */}
+            {listaA_Mostrar.map((getpro) => (
+              <section
+                key={getpro.id}
+                className="flex flex-col bg-white h-[93%] md:shadow-md md:p-5 md:border md:border-gray-100 md:rounded-md"
+              >
+                <Link to={`/detallePro/${getpro.id}`} className="w-full">
+                  <div className="relative aspect-3/4 w-full bg-[#edefef] rounded-2xl md:rounded overflow-hidden p-5 flex items-center justify-center">
+                    <img
+                      src={getpro.image}
+                      alt={`Foto de ${getpro.title}`}
+                      className="max-h-full max-w-full object-contain mix-blend-multiply"
+                    />
+                  </div>
+                </Link>
 
-              <span className="uppercase mt-2 text-slate-400 text-[12px] font-semibold tracking-widest block">
-                {getpro.category}
-              </span>
+                <span className="uppercase mt-2 text-slate-400 text-[12px] font-semibold tracking-widest block">
+                  {getpro.category}
+                </span>
 
-              <Link to={`/detallePro/${getpro.id}`}>
-                <p className="font-bold text-stone-800 text-sm min-h-10">
-                  {acortarTexto(getpro.title, 21)}
-                </p>
-              </Link>
+                <Link to={`/detallePro/${getpro.id}`}>
+                  <p className="font-bold text-stone-800 text-sm min-h-10">
+                    {acortarTexto(getpro.title, 21)}
+                  </p>
+                </Link>
 
-              <span className="block font-bold text-blue-600 text-base my-0.5 -mt-4">
-                ${" "}
-                {typeof getpro.price === "number"
-                  ? getpro.price.toFixed(2)
-                  : getpro.price}
-              </span>
-              <button className="bg-[#081c3a] hover:bg-[#0f2d5a] transition-colors text-white text-[13px] rounded-xl w-full p-3 font-semibold flex justify-center items-center gap-2 mt-1 shadow-sm mb-12">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="18px"
-                  viewBox="0 -960 960 960"
-                  width="24px"
-                  fill="#e3e3e3"
-                >
-                  <path d="M440-600v-120H320v-80h120v-120h80v120h120v80H520v120h-80ZM223.5-103.5Q200-127 200-160t23.5-56.5Q247-240 280-240t56.5 23.5Q360-193 360-160t-23.5 56.5Q313-80 280-80t-56.5-23.5Zm400 0Q600-127 600-160t23.5-56.5Q647-240 680-240t56.5 23.5Q760-193 760-160t-23.5 56.5Q713-80 680-80t-56.5-23.5ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z" />
-                </svg>
-                Add to card
-              </button>
-            </section>
-          ))}
-        </div>
+                <span className="block font-bold text-blue-600 text-base my-0.5 -mt-4">
+                  ${" "}
+                  {typeof getpro.price === "number"
+                    ? getpro.price.toFixed(2)
+                    : getpro.price}
+                </span>
+                <button className="bg-[#081c3a] hover:bg-[#0f2d5a] transition-colors text-white text-[13px] rounded-xl w-full p-3 font-semibold flex justify-center items-center gap-2 mt-1 shadow-sm mb-12">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="18px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#e3e3e3"
+                  >
+                    <path d="M440-600v-120H320v-80h120v-120h80v120h120v80H520v120h-80ZM223.5-103.5Q200-127 200-160t23.5-56.5Q247-240 280-240t56.5 23.5Q360-193 360-160t-23.5 56.5Q313-80 280-80t-56.5-23.5Zm400 0Q600-127 600-160t23.5-56.5Q647-240 680-240t56.5 23.5Q760-193 760-160t-23.5 56.5Q713-80 680-80t-56.5-23.5ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z" />
+                  </svg>
+                  Add to card
+                </button>
+              </section>
+            ))}
+          </div>
+
+          <div className="hidden md:flex flex-col items-center justify-center gap-3 mt-14 mb-6">
+            <button className="bg-white hover:bg-gray-50 border border-gray-200 text-gray-900 font-bold text-xs py-3 px-7 rounded-xl transition-all shadow-xs cursor-pointer active:scale-98">
+              Load More Products
+            </button>
+            
+            <span className="text-gray-400 text-xs font-normal">
+              Showing {listaA_Mostrar.length} of 20 products
+            </span>
+          </div>
+        </>
       )}
     </div>
   );
